@@ -1,0 +1,15 @@
+{
+  "name": "random-number-arrays",
+  "version": "1.0.0",
+  "description": "Generate random number or array(s) of random number within the specified range",
+  "license": "MIT",
+  "repository": "zubairsudofy/random-number-arrays",
+  "main": "index.js",
+  "keywords": [
+    "random",
+    "random number arrays",
+    "arrays",
+    "random-number",
+    "random-number-range"
+  ]
+}
