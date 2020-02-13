@@ -1,11 +1,11 @@
-module.exports = function Random(options) {
+module.exports = function Random(params) {
   const options = {
     type: 'number',
     min: 0,
     max: 100,
     arraySize: 5,
     numberOfArrays: 2,
-    ...options
+    ...params
   };
   const {
     type,
