@@ -19,7 +19,7 @@ module.exports = function Random(params) {
       numberOfArrays
     } = options;
 
-    const isInvalidOptions = validation(options);
+    const isInvalidOptions = validation.validateOptions(options);
 
     if (isInvalidOptions) {
       return isInvalidOptions;
