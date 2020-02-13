@@ -1,3 +1,5 @@
+const validation = require('./validations');
+
 module.exports = function Random(params) {
   let response;
   try {
@@ -16,6 +18,12 @@ module.exports = function Random(params) {
       arraySize,
       numberOfArrays
     } = options;
+
+    const isInvalidOptions = validation(options);
+
+    if (isInvalidOptions) {
+      return isInvalidOptions;
+    }
 
     if (options.type === 'number') {
       response = Math.floor(Math.random() * (max - min + 1) + min);
@@ -39,7 +47,7 @@ module.exports = function Random(params) {
       response = 'Invalid type provided'
     }
   } catch (error) {
-    response = 'Invalid Options provided'
+    response = 'Invalid options provided'
   }
   return response;
 };
