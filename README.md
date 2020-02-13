@@ -2,6 +2,7 @@ Generate **Random Number** or **Array of Random Numbers** within specified range
 
 **Install**
 ```
+
 > $ npm install random-number-arrays
 ```
 **Usage**
@@ -10,6 +11,20 @@ Generate **Random Number** or **Array of Random Numbers** within specified range
 > const options = { min: 0, max: 10 }
 > Random(options);
 > // => 4
+
+> const options = { min:  0, max:  15, type:  'array', arraySize:  10 }
+> Random(options);
+> // => [ 2, 13, 4, 0, 11, 1, 8, 9, 12, 10 ]
+
+> const options = { min:  0, max:  10, type:  'multi-array', arraySize:  10, numberOfArrays:  6 }
+> Random(options);
+> // => [ [ 2, 9, 1, 3, 6, 7, 9, 10, 1, 4 ],
+  [ 3, 7, 7, 1, 4, 6, 4, 1, 8, 10 ],
+  [ 10, 6, 7, 4, 10, 2, 7, 6, 1, 1 ],
+  [ 5, 8, 0, 9, 3, 0, 0, 1, 6, 1 ],
+  [ 10, 2, 2, 9, 6, 5, 4, 1, 0, 4 ],
+  [ 9, 8, 6, 4, 1, 3, 4, 2, 0, 9 ] ]
+
 ```
 **Options:**
 
