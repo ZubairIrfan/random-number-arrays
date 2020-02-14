@@ -29,11 +29,12 @@ Generate **Random Number** or **Array of Random Numbers** within specified range
 **Options:**
 
 ```markdown
-| Key            	|  Type  	|  Default 	| Description                                                                                                                                        	|
-|----------------	|:------:	|:--------:	|----------------------------------------------------------------------------------------------------------------------------------------------------	|
-| min            	| Number 	|     0    	| Range Minimum Number                                                                                                                               	|
-| max            	| Number 	|    100   	| Range Maximum Number                                                                                                                               	|
-| type           	| String 	| 'number' 	| For single random number, use 'number'. For single array of random numbers, use 'array'. For multiple array of random numbers, use 'multi-array'.  	|
-| arraySize      	| Number 	|     5    	| For type='array' or type='multi-array', specify the size of the array.                                                                             	|
-| numberOfArrays 	| Number 	|     2    	| For type='multi-array', specify number of random number arrays to be generated.                                                                    	|
+| Key            	|   Type  	|  Default 	| Description                                                                                                                                        	|
+|----------------	|:-------:	|:--------:	|----------------------------------------------------------------------------------------------------------------------------------------------------	|
+| min            	|  Number 	|     0    	| Range Minimum Number                                                                                                                               	|
+| max            	|  Number 	|    100   	| Range Maximum Number                                                                                                                               	|
+| type           	|  String 	| 'number' 	| For single random number, use 'number'. For single array of random numbers, use 'array'. For multiple array of random numbers, use 'multi-array'.  	|
+| arraySize      	|  Number 	|     5    	| For type='array' or type='multi-array', specify the size of the array.                                                                             	|
+| numberOfArrays 	|  Number 	|     2    	| For type='multi-array', specify number of random number arrays to be generated.                                                                    	|
+| unique         	| Boolean 	|   false  	| Return unique values for type array provided that array size should be less than numbers count in provided range.                                  	|
 ```
