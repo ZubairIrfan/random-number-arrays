@@ -3,13 +3,14 @@ const validation = require('./validations');
 module.exports = function Random(params) {
   let response;
   try {
-    const options = {
+    let options = {
       type: 'number',
       unique: false,
       min: 0,
       max: 100,
       arraySize: 5,
       numberOfArrays: 2,
+      data: null,
       ...params
     };
     let {
@@ -18,7 +19,8 @@ module.exports = function Random(params) {
       max,
       arraySize,
       numberOfArrays,
-      unique
+      unique,
+      data
     } = options;
 
     const isInvalidOptions = validation.validateOptions(options);
@@ -26,16 +28,19 @@ module.exports = function Random(params) {
     if (isInvalidOptions) {
       return isInvalidOptions;
     }
-
+    if (data) {
+      min = 0;
+      max = data.length - 1;
+    }
     if (options.type === 'number') {
       response = Math.floor(Math.random() * (max - min + 1) + min);
     } else if (type === 'array') {
-      const randomNumberArray = generateRandomArray(arraySize, min, max, unique)
+      const randomNumberArray = generateRandomArray(arraySize, min, max, unique, data)
       response = randomNumberArray;
     } else if (type === 'multi-array') {
       const randomNumberMultiArrays = [];
       for (let i = 0; i < numberOfArrays; i++) {
-        const randomNumberArray = generateRandomArray(arraySize, min, max, unique)
+        const randomNumberArray = generateRandomArray(arraySize, min, max, unique, data)
         randomNumberMultiArrays.push(randomNumberArray);
       }
       response = randomNumberMultiArrays;
@@ -49,24 +54,35 @@ module.exports = function Random(params) {
 };
 
 
-function generateRandomArray(arraySize, min, max, unique) {
+function generateRandomArray(arraySize, min, max, unique, data) {
   const randomNumberArray = [];
   if (unique) {
     if (arraySize <= ((max - min) + 1)) {
       while (randomNumberArray.length !== arraySize) {
         let random = Math.floor(Math.random() * (max - min + 1) + min);
-        if (!randomNumberArray.includes(random)) {
+        if (!data && !randomNumberArray.includes(random)) {
           randomNumberArray.push(random)
+        } else if (data && !randomNumberArray.includes(data[random])) {
+          randomNumberArray.push(data[random])
         }
       }
     } else { // implement some sort of logic later
       for (let i = 0; i < arraySize; i++) {
-        randomNumberArray.push(Math.floor(Math.random() * (max - min + 1) + min));
+        if (!data) {
+          randomNumberArray.push(Math.floor(Math.random() * (max - min + 1) + min));
+        } else {
+          randomNumberArray.push(data[Math.floor(Math.random() * (max - min + 1) + min)]);
+        }
       }
     }
   } else {
     for (let i = 0; i < arraySize; i++) {
-      randomNumberArray.push(Math.floor(Math.random() * (max - min + 1) + min));
+
+      if (!data) {
+        randomNumberArray.push(Math.floor(Math.random() * (max - min + 1) + min));
+      } else {
+        randomNumberArray.push(data[Math.floor(Math.random() * (max - min + 1) + min)]);
+      }
     }
   }
   return randomNumberArray;

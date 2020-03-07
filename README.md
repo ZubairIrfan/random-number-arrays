@@ -37,4 +37,5 @@ Generate **Random Number** or **Array of Random Numbers** within specified range
 | arraySize      	|  Number 	|     5    	| For type='array' or type='multi-array', specify the size of the array.                                                                             	|
 | numberOfArrays 	|  Number 	|     2    	| For type='multi-array', specify number of random number arrays to be generated.                                                                    	|
 | unique         	| Boolean 	|   false  	| Return unique values for type array provided that array size should be less than numbers count in provided range.                                  	|
+| data           	| Array   	|   null   	| (Optional) For type='array' or type='multi-array', provide your own data to get random elements.                                                   	|
 ```

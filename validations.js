@@ -5,7 +5,8 @@ module.exports.validateOptions = (options) => {
     max,
     arraySize,
     numberOfArrays,
-    unique
+    unique,
+    data
   } = options;
   if (type !== 'number' && type !== 'array' && type !== 'multi-array') {
     return 'Invalid value for (type) provided'
@@ -38,9 +39,13 @@ module.exports.validateOptions = (options) => {
     return '(numberOfArrays) cannot be less than or equal to zero'
   }
 
-  if(typeof unique !== "boolean") {
+  if (typeof unique !== "boolean") {
     return 'Invalid value for (unique) provided'
   }
-  
+
+  if (data && typeof data === 'object' && data.length && data.length < arraySize && unique) {
+    return 'Invalid length of data to generate (unique) results'
+  }
+
   return null;
 }
