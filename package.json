@@ -1,6 +1,6 @@
 {
   "name": "random-number-arrays",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "Generate random number or array(s) of random number within the specified range or provided data",
   "license": "MIT",
   "repository": "zubairsudofy/random-number-arrays",

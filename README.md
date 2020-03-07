@@ -25,6 +25,22 @@ Generate **Random Number** or **Array of Random Numbers** within specified range
   [ 10, 2, 2, 9, 6, 5, 4, 1, 0, 4 ],
   [ 9, 8, 6, 4, 1, 3, 4, 2, 0, 9 ] ]
 
+> const  options = { min:  1, max:  5, type:  'array', arraySize:  5, unique:  true,
+						data: [{ name:  'Zubair', age:  '24' },
+						       { name:  'Faraz', age:  '26' },
+						       { name:  'Faris', age:  '23' },
+						       { name:  'Umer', age:  '26' },
+						       { name:  'Aahad', age:  '24' },
+						       { name:  'Rohail', age:  '27' },
+						       { name:  'Taj', age:  '24' }]
+					}
+> Random(options);
+> // [ { name: 'Aahad', age: '24' },
+  { name: 'Zubair', age: '24' },
+  { name: 'Faraz', age: '26' },
+  { name: 'Zain', age: '24' },
+  { name: 'Sohaib', age: '25' } ]
+ 
 ```
 **Options:**
 
