@@ -22,7 +22,6 @@ module.exports = function Random(params) {
       unique,
       data
     } = options;
-    console.log(options)
     const isInvalidOptions = validation.validateOptions(options);
 
     if (isInvalidOptions) {
@@ -48,7 +47,6 @@ module.exports = function Random(params) {
       response = 'Invalid type provided'
     }
   } catch (error) {
-    console.log(error)
     response = 'Invalid options provided'
   }
   return response;
