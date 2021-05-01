@@ -7,7 +7,7 @@ module.exports = function Random(params) {
       type: 'number',
       unique: false,
       min: 0,
-      max: 5,
+      max: 100,
       arraySize: 5,
       numberOfArrays: 2,
       data: null,
