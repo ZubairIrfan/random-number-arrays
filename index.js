@@ -22,7 +22,6 @@ module.exports = function Random(params) {
       unique,
       data
     } = options;
-
     const isInvalidOptions = validation.validateOptions(options);
 
     if (isInvalidOptions) {
@@ -55,7 +54,7 @@ module.exports = function Random(params) {
 
 
 function generateRandomArray(arraySize, min, max, unique, data) {
-  const randomNumberArray = [];
+  let randomNumberArray = [];
   if (unique) {
     if (arraySize <= ((max - min) + 1)) {
       while (randomNumberArray.length !== arraySize) {
@@ -76,14 +75,15 @@ function generateRandomArray(arraySize, min, max, unique, data) {
       }
     }
   } else {
-    for (let i = 0; i < arraySize; i++) {
-
-      if (!data) {
-        randomNumberArray.push(Math.floor(Math.random() * (max - min + 1) + min));
-      } else {
-        randomNumberArray.push(data[Math.floor(Math.random() * (max - min + 1) + min)]);
-      }
+    // for (let i = 0; i < arraySize; i++) {
+    if (!data) {
+      randomNumberArray = Array.from({ length: arraySize, }, () => Math.floor(Math.random() * (max - min + 1) + min))
+      // randomNumberArray.push(Math.floor(Math.random() * (max - min + 1) + min));
+    } else {
+      randomNumberArray = Array.from({ length: arraySize, }, () => data[Math.floor(Math.random() * (max - min + 1) + min)])
+      // randomNumberArray.push(data[Math.floor(Math.random() * (max - min + 1) + min)]);
     }
+    // }
   }
   return randomNumberArray;
 }
